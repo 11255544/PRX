@@ -51,7 +51,9 @@ body {
     display: flex;
     align-items: center;
   }
-  
+  .search-input:focus{
+    outline-color: rgb(238, 175, 175);
+  }
   .search-input {
     width: 100%;
     padding: 10px;
@@ -63,7 +65,7 @@ body {
   .search-button {
     padding: 10px 15px;
     background-color: #4CAF50;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -73,6 +75,4 @@ body {
   .search-button:hover {
     background-color: #45a049;
   }
-  
-  /* Add more styling as needed */
   
