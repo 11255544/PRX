@@ -1,1 +1,1 @@
-CREATE DATABASE databáze;
+CREATE DATABASE databaze;
