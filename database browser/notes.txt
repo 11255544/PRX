@@ -1,4 +1,3 @@
-neúspěch instalce wamp 
 	začátek práce na frontendu
 		použití drop down menu check boxů a forms
-			
+			tvoření datbáze
