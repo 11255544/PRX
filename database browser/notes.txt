@@ -1,3 +1,4 @@
 	začátek práce na frontendu
 		použití drop down menu check boxů a forms
 			tvoření datbáze - hlédání spůsobů na její vytvoření
+				tvoření db v sql
