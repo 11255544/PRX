@@ -3,3 +3,4 @@
 			tvoření datbáze - hlédání spůsobů na její vytvoření
 				instalace apache a mysql serveru xampp 
 					tvoření databáze v mysql a php
+						změnění přístupu k frontendu nahrazení html souboru php souborem
