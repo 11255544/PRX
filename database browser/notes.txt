@@ -2,4 +2,4 @@
 		použití drop down menu check boxů a forms
 			tvoření datbáze - hlédání spůsobů na její vytvoření
 				instalace apache a mysql serveru xampp 
-					tvoření databáze v mysql workbench
+					tvoření databáze v mysql a php
