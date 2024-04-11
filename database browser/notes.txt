@@ -4,3 +4,7 @@
 				instalace apache a mysql serveru xampp 
 					tvoření databáze v mysql a php
 						změnění přístupu k frontendu nahrazení html souboru php souborem
+							php nejde pokračuji v pythonu změna frontendu
+								použití návrhu databáze od mySQL https://dev.mysql.com/doc/employee/en/
+									finální produkt je téměž na světě
+co jsem se naučil - použití databáze na serveru, bash comandy
