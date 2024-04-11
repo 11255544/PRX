@@ -7,4 +7,4 @@
 							php nejde pokračuji v pythonu změna frontendu
 								použití návrhu databáze od mySQL https://dev.mysql.com/doc/employee/en/
 									finální produkt je téměž na světě
-co jsem se naučil - použití databáze na serveru, bash comandy
+co jsem se naučil - použití databáze na serveru, bash comandy, pokrok v používání objektového programování
