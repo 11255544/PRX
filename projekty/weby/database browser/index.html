@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Browser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Database Browser</h1>
+        
+        <form id="addForm">
+            <label for="empNo">Employee Number:</label>
+            <input type="text" id="empNo" name="empNo" required>
+            <label for="birthDate">Birth Date:</label>
+            <input type="text" id="birthDate" name="birthDate" required>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" required>
+            <label for="hireDate">Hire Date:</label>
+            <input type="text" id="hireDate" name="hireDate" required>
+            <button type="submit">Add Record</button>
+        </form>
+        
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Employee Number</th>
+                    <th>Birth Date</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Hire Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        async function fetchData() {
+            const response = await fetch('/data');
+            const data = await response.json();
+            const tableBody = document.querySelector('#dataTable tbody');
+            tableBody.innerHTML = '';
+            data.forEach(record => {
+                const row = `<tr>
+                                <td>${record.emp_no}</td>
+                                <td>${record.birth_date}</td>
+                                <td>${record.first_name}</td>
+                                <td>${record.last_name}</td>
+                                <td>${record.gender}</td>
+                                <td>${record.hire_date}</td>
+                            </tr>`;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchData();
+            
+            const addForm = document.querySelector('#addForm');
+            addForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(addForm);
+                await fetch('/add', {
+                    method: 'POST',
+                    body: formData
+                });
+                addForm.reset();
+                fetchData();
+            });
+        });
+    </script>
+</body>
+</html>
